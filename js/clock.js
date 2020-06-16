@@ -57,3 +57,7 @@ function ponerCeros(i) {
 }
 
 devuelveHora();
+
+function addTime() {
+    console.log('Click boton')
+}
