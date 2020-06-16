@@ -22,8 +22,8 @@ Donde podéis integrar más países que esos cinco.
 var paisesIniciales = ["hourLondres", "hourLosAngeles", "hourNY", "hourSidney"];
 var horasDiferenciaPaisesIniciales = [-1, -9, -6, 8]
 
-var arrayPaises = ['Roma', 'Bruselas', 'Brasilia', 'Bogotá', 'Pekin', 'Helsinki', 'Atenas', 'Tokio']
-var arrayHorasDiferenciaPaises = [0, 0, -5, -7, 6, 1, 1, 7];
+var arrayPaises = ['Roma', 'Bruselas', 'Brasilia', 'Bogotá', 'Pekin', 'Helsinki', 'Atenas', 'Tokio', 'Caracas', 'Rabat', 'Varsovia']
+var arrayHorasDiferenciaPaises = [0, 0, -5, -7, 6, 1, 1, 7, -6, -1, 0];
 //array con los paises que podremos añadir y sus respectivas horas con las mismas posiciones
 
 function devuelveHora() {
@@ -135,6 +135,7 @@ function mostrarCiudad(i) {
     document.getElementById("sectionHours").appendChild(nodeh3);
     document.getElementById("sectionHours").appendChild(nodeh3Hour);
     document.getElementById("sectionHours").appendChild(hr);
+
 }
 
 function devuelveHoraNuevaCiudad(hour) {
@@ -147,6 +148,7 @@ function devuelveHoraNuevaCiudad(hour) {
 
     hours = ponerCeros(hours);
     minutes = ponerCeros(minutes);
+    setTimeout('devuelveHoraNuevaCiudad()', 1000) //cada sec se actualiza
     return (hours + ':' + minutes);
 }
 
