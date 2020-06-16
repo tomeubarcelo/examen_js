@@ -20,6 +20,8 @@ Al final, hay un botón (cruz a la derecha).
 Donde podéis integrar más países que esos cinco.
 */
 
+var arrayPaises = ['Roma', 'Bruselas', 'Brasilia', 'Bogotá', 'Pekin', 'Helsinki', 'Atenas', 'Tokio']
+var arrayHorasDiferenciaPaises = [0, 0, -5, -7, 6, 1, 1, 7];
 
 function devuelveHora() {
     let date = new Date();
@@ -59,5 +61,26 @@ function ponerCeros(i) {
 devuelveHora();
 
 function addTime() {
-    console.log('Click boton')
+    console.log('Click boton');
+    var addCiudad = prompt('¿Que ciudad deseas agregar?. Selecciona una de la siguiente lista', arrayPaises);
+    console.log(addCiudad);
+    let noValido = /\s/;
+    if (noValido.test(addCiudad)) {
+        alert('Debe seleccionar solo una ciudad')
+    } else {
+        console.log(addCiudad);
+        if (arrayPaises.includes(addCiudad)) {
+            confirm('¿Desea agregar ' + addCiudad + '?');
+            let positionCity = arrayPaises.indexOf(addCiudad);
+            console.log(addCiudad + ' ocupa la posicion ' + positionCity + ' en el array')
+            let horaCorrespondiente = arrayHorasDiferenciaPaises[positionCity]
+            console.log('La posicion de la hora es: ' + horaCorrespondiente);
+        } else {
+            alert('Selecciona una ciudad correcta')
+        }
+    }
+}
+
+function mostrarCiudad(i) {
+
 }
