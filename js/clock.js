@@ -38,10 +38,12 @@ function devuelveHora() {
     //document.getElementById("hourSpain").innerHTML = (hours + ':' + minutes + ':' + seconds)
     document.getElementById("hourSpain").innerHTML = (hours + ':' + minutes)
 
+    //bucle que recorre el array de los paises iniciales y tambien su respectiva hora
     for (var i = 0; i < paisesIniciales.length; i++) {
         let hoursCity = parseInt(hours) + horasDiferenciaPaisesIniciales[i];
         hoursCity = ponerCeros(hoursCity);
         document.getElementById(paisesIniciales[i]).innerHTML = (hoursCity + ':' + minutes)
+            //los muestra por pantalla 
     }
     /*let hoursLondres = parseInt(hours) - 1;
     hoursLondres = ponerCeros(hoursLondres);
@@ -56,7 +58,7 @@ function devuelveHora() {
     hourSidney = ponerCeros(hourSidney);
     document.getElementById("hourSidney").innerHTML = (hourSidney + ':' + minutes)
 */
-    setTimeout('devuelveHora()', 1000)
+    setTimeout('devuelveHora()', 1000) //cada sec se actualiza
 }
 
 function ponerCeros(i) {
@@ -66,28 +68,35 @@ function ponerCeros(i) {
     return i;
 }
 
-devuelveHora();
-
+//funcion que se ejecuta al pulsar el boton de añadir
 function addTime() {
     console.log('Click boton');
     var addCiudad = prompt('¿Que ciudad deseas agregar?. Selecciona una de la siguiente lista', arrayPaises);
     console.log(addCiudad);
     let noValido = /\s/;
+    //solo puedes elegir una ciudad.. detecta que no hay espacios
     if (noValido.test(addCiudad)) {
-        alert('Debe seleccionar solo una ciudad')
+        alert('Debe seleccionar solo una ciudad');
     } else {
         console.log(addCiudad);
+        //si el pais seleccionado esta en el array..
         if (arrayPaises.includes(addCiudad)) {
-            confirm('¿Desea agregar ' + addCiudad + '?');
-            let positionCity = arrayPaises.indexOf(addCiudad);
-            console.log(addCiudad + ' ocupa la posicion ' + positionCity + ' en el array')
-            let horaCorrespondiente = arrayHorasDiferenciaPaises[positionCity]
-            console.log('La posicion de la hora es: ' + horaCorrespondiente);
-            mostrarCiudad(positionCity);
-            arrayPaises.splice(positionCity, 1);
-            arrayHorasDiferenciaPaises.splice(positionCity, 1);
+            var opcionConfirmar = confirm('¿Desea agregar ' + addCiudad + '?');
+            if (opcionConfirmar == true) {
+                console.log('Se va a añadir ' + addCiudad);
+                let positionCity = arrayPaises.indexOf(addCiudad); //posicion de la ciudad seleccionada en el array
+                console.log(addCiudad + ' ocupa la posicion ' + positionCity + ' en el array');
+                let horaCorrespondiente = arrayHorasDiferenciaPaises[positionCity]; //posicion de la hora correspondiente a la ciudad dentro del array de horas
+                console.log('La posicion de la hora es: ' + horaCorrespondiente);
+                mostrarCiudad(positionCity); //funcion con el parametro de la posicion de la ciudad en el array
+                //eliminamos del array tanto la ciudad como su respectiva hora ya seleccionadas, para que el usuario no pueda volver a elegir dicha ciudad
+                arrayPaises.splice(positionCity, 1);
+                arrayHorasDiferenciaPaises.splice(positionCity, 1);
+            } else {
+                console.log('NOOO se va a añadir ' + addCiudad);
+            }
         } else {
-            alert('Selecciona una ciudad correcta')
+            alert('Selecciona una ciudad correcta'); //si el usuario no escribe la ciudad correctamente
         }
     }
 }
@@ -117,7 +126,7 @@ function mostrarCiudad(i) {
     //creamos el h3 donde se vera la hora
     var nodeh3Hour = document.createElement("h3");
     nodeh3Hour.className = "titleWhite boxTime";
-    var nodeTextForh3Hour = document.createTextNode(devuelveHoraNuevaCiudad(hour));
+    var nodeTextForh3Hour = document.createTextNode(devuelveHoraNuevaCiudad(hour)); //llamamos a la funcion con el parametro de la hora
     nodeh3Hour.appendChild(nodeTextForh3Hour);
 
     var hr = document.createElement("hr");
@@ -129,6 +138,7 @@ function mostrarCiudad(i) {
 }
 
 function devuelveHoraNuevaCiudad(hour) {
+    //creamos la hora para las nuevas ciudades
     let date = new Date();
     let hours = date.getHours();
     let minutes = date.getMinutes();
@@ -139,3 +149,5 @@ function devuelveHoraNuevaCiudad(hour) {
     minutes = ponerCeros(minutes);
     return (hours + ':' + minutes);
 }
+
+devuelveHora();
