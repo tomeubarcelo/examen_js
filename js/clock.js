@@ -71,7 +71,7 @@ function ponerCeros(i) {
 //funcion que se ejecuta al pulsar el boton de añadir
 function addTime() {
     console.log('Click boton');
-    var addCiudad = prompt('¿Que ciudad deseas agregar?. Selecciona una de la siguiente lista', arrayPaises);
+    var addCiudad = prompt('¿Que ciudad deseas agregar? Solo puede seleccionar una de la siguiente lista', arrayPaises);
     console.log(addCiudad);
     let noValido = /\s/;
     //solo puedes elegir una ciudad.. detecta que no hay espacios
@@ -104,7 +104,7 @@ function addTime() {
 function mostrarCiudad(i) {
     //aqui mostraremos cada ciudad con su respectiva hora
     let hour = arrayHorasDiferenciaPaises[i];
-    console.log('Hora de diferencia: ' + hour);
+    console.log('Hora de diferencia con nuestra hora actual: ' + hour);
     //cremaos el h4 y le asignamos la clase
     var nodeh4 = document.createElement("h4");
     nodeh4.className = "titleGray";
@@ -130,7 +130,7 @@ function mostrarCiudad(i) {
     nodeh3Hour.appendChild(nodeTextForh3Hour);
 
     var hr = document.createElement("hr");
-    //creamos el h3 y los añadimos todos al document
+    //añadimos todos al document
     document.getElementById("sectionHours").appendChild(nodeh4);
     document.getElementById("sectionHours").appendChild(nodeh3);
     document.getElementById("sectionHours").appendChild(nodeh3Hour);
@@ -143,7 +143,7 @@ function devuelveHoraNuevaCiudad(hour) {
     let hours = date.getHours();
     let minutes = date.getMinutes();
 
-    hours = hours + hour;
+    hours = hours + hour; //le sumamos la hora del pais a la hora actual (la nuestra)
 
     hours = ponerCeros(hours);
     minutes = ponerCeros(minutes);
