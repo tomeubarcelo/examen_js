@@ -22,7 +22,7 @@ main {
     color: #909084;
 }
 
-.boxHours .boxTime {
+.boxTime {
     float: right;
     top: -89px;
     right: 200px;
