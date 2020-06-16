@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+
+<head>
     <!-- Metadatos Web -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- HTML Meta Tags -->
-    <title>Plantilla</title>
+    <title>Reloj Mundial</title>
     <meta name="description" content="" />
 
     <!-- Google / Search Engine Tags -->
@@ -29,77 +30,84 @@
     <meta name="twitter:image" content="http://" />
 
     <!-- FontAwesome -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
 
     <!-- Nuestro Framework de CSS preferido, mi preferido es BULMA -->
-    <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css" />    
-    
+    <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css" />
+
     <!-- Nuestro CSS Compilado a través de SASS ó sin compilar solo CSS básico -->
     <link rel="stylesheet" href="css/estilos.css" />
-    
-  </head>
-  <body>
+
+
+</head>
+
+<body>
     <header>
-      <!--
+        <!--
         *
         * Bloque HEADER
         *
       -->
-           <figure id="logo">
+        <figure id="logo">
             <!--
              *
              * Bloque LOGO
              *
             -->
-                <img src="" alt="">
-           </figure>
-      
-           <nav id="navegacionPrincipal">
+            <img src="" alt="">
+        </figure>
+
+        <nav id="navegacionPrincipal">
             <!--
              *
              * Bloque Links de Navegación Principal
              *
             -->
-          </nav>
-      
+        </nav>
+
     </header>
 
     <main>
-      <!--
+        <!--
         *
         * Bloque MAIN
         *
       -->
-      
-          <section>
+        <h1>Reloj mundial</h1>
+
+        <section>
             <!--
              *
              * Bloque SECTION
              *
             -->
-          </section>
-      
-          <article>
+            <h3 id="hourSpain"></h3>
+        </section>
+
+        <article>
+            <form name="form_reloj">
+                <input type="text" name="reloj" size="10" style="background-color : Black; color : White; font-family : Verdana, Arial, Helvetica; font-size : 8pt; text-align : center;" onfocus="window.document.form_reloj.reloj.blur()">
+            </form>
+
             <!--
              *
              * Bloque ARTICLE
              *
             -->
-          </article>
-      
+        </article>
+
     </main>
 
     <footer>
-      <!--
+        <!--
         *
         * Bloque FOOTER
         *
         -->
     </footer>
-  </body>
+    <!-- Nuestro JS -->
+    <script src="js/clock.js"></script>
+
+</body>
+
 </html>
