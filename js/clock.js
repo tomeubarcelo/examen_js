@@ -19,6 +19,8 @@ Si os da tiempo, perfeccionar esa idea, pero lo principal es el código de Javas
 Al final, hay un botón (cruz a la derecha).
 Donde podéis integrar más países que esos cinco.
 */
+var paisesIniciales = ["hourLondres", "hourLosAngeles", "hourNY", "hourSidney"];
+var horasDiferenciaPaisesIniciales = [-1, -9, -6, 8]
 
 var arrayPaises = ['Roma', 'Bruselas', 'Brasilia', 'Bogotá', 'Pekin', 'Helsinki', 'Atenas', 'Tokio']
 var arrayHorasDiferenciaPaises = [0, 0, -5, -7, 6, 1, 1, 7];
@@ -36,7 +38,12 @@ function devuelveHora() {
     //document.getElementById("hourSpain").innerHTML = (hours + ':' + minutes + ':' + seconds)
     document.getElementById("hourSpain").innerHTML = (hours + ':' + minutes)
 
-    let hoursLondres = parseInt(hours) - 1;
+    for (var i = 0; i < paisesIniciales.length; i++) {
+        let hoursCity = parseInt(hours) + horasDiferenciaPaisesIniciales[i];
+        hoursCity = ponerCeros(hoursCity);
+        document.getElementById(paisesIniciales[i]).innerHTML = (hoursCity + ':' + minutes)
+    }
+    /*let hoursLondres = parseInt(hours) - 1;
     hoursLondres = ponerCeros(hoursLondres);
     document.getElementById("hourLondres").innerHTML = (hoursLondres + ':' + minutes)
     let hourLosAngeles = parseInt(hours) - 9;
@@ -48,7 +55,7 @@ function devuelveHora() {
     let hourSidney = parseInt(hours) + 6;
     hourSidney = ponerCeros(hourSidney);
     document.getElementById("hourSidney").innerHTML = (hourSidney + ':' + minutes)
-
+*/
     setTimeout('devuelveHora()', 1000)
 }
 
