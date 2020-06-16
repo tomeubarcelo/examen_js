@@ -44,7 +44,7 @@ function devuelveHora() {
     let hourNY = parseInt(hours) - 6;
     hourNY = ponerCeros(hourNY);
     document.getElementById("hourNY").innerHTML = (hourNY + ':' + minutes)
-    let hourSidney = parseInt(hours) - 6;
+    let hourSidney = parseInt(hours) + 6;
     hourSidney = ponerCeros(hourSidney);
     document.getElementById("hourSidney").innerHTML = (hourSidney + ':' + minutes)
 
@@ -108,7 +108,7 @@ function mostrarCiudad(i) {
     //creamos el h3 donde se vera la hora
     var nodeh3Hour = document.createElement("h3");
     nodeh3Hour.className = "titleWhite boxTime";
-    var nodeTextForh3Hour = document.createTextNode('test');
+    var nodeTextForh3Hour = document.createTextNode(devuelveHoraNuevaCiudad(hour));
     nodeh3Hour.appendChild(nodeTextForh3Hour);
 
     var hr = document.createElement("hr");
@@ -117,4 +117,16 @@ function mostrarCiudad(i) {
     document.getElementById("sectionHours").appendChild(nodeh3);
     document.getElementById("sectionHours").appendChild(nodeh3Hour);
     document.getElementById("sectionHours").appendChild(hr);
+}
+
+function devuelveHoraNuevaCiudad(hour) {
+    let date = new Date();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+
+    hours = hours + hour;
+
+    hours = ponerCeros(hours);
+    minutes = ponerCeros(minutes);
+    return (hours + ':' + minutes);
 }
