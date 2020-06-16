@@ -74,21 +74,41 @@
         *
       -->
         <h1>Reloj mundial</h1>
-
-        <section>
+        <button type="button" id="addTime" onclick="addTime();">+</button>
+        <hr>
+        <section class="sectionHours">
             <!--
              *
              * Bloque SECTION
              *
             -->
+            <h4>Hoy, +0H</h4>
+            <h3>Madrid</h3>
             <h3 id="hourSpain"></h3>
+
+            <hr>
+            <h4>Hoy, -1H</h4>
+            <h3>Londres</h3>
+            <h3 id="hourLondres"></h3>
+
+            <hr>
+            <h4>Hoy, -9H</h4>
+            <h3>Los Ángeles</h3>
+            <h3 id="hourLosAngeles"></h3>
+
+            <hr>
+            <h4>Hoy, -6H</h4>
+            <h3>Nueva York</h3>
+            <h3 id="hourNY"></h3>
+
+            <hr>
+            <h4>Mañana, +8H</h4>
+            <h3>Sidney</h3>
+            <h3 id="hourSidney"></h3>
+
         </section>
 
         <article>
-            <form name="form_reloj">
-                <input type="text" name="reloj" size="10" style="background-color : Black; color : White; font-family : Verdana, Arial, Helvetica; font-size : 8pt; text-align : center;" onfocus="window.document.form_reloj.reloj.blur()">
-            </form>
-
             <!--
              *
              * Bloque ARTICLE

@@ -25,9 +25,35 @@ function devuelveHora() {
     let date = new Date();
     let hours = date.getHours();
     let minutes = date.getMinutes();
-    let seconds = date.getSeconds();
-    document.getElementById("hourSpain").innerHTML = (hours + ':' + minutes + ':' + seconds)
+    //let seconds = date.getSeconds();
+    //nos encargamos de poner los ceros si es menor de 10
+    hours = ponerCeros(hours);
+    minutes = ponerCeros(minutes);
+    //seconds = ponerCeros(seconds);
+    //document.getElementById("hourSpain").innerHTML = (hours + ':' + minutes + ':' + seconds)
+    document.getElementById("hourSpain").innerHTML = (hours + ':' + minutes)
+
+    let hoursLondres = parseInt(hours) - 1;
+    hoursLondres = ponerCeros(hoursLondres);
+    document.getElementById("hourLondres").innerHTML = (hoursLondres + ':' + minutes)
+    let hourLosAngeles = parseInt(hours) - 9;
+    hourLosAngeles = ponerCeros(hourLosAngeles);
+    document.getElementById("hourLosAngeles").innerHTML = (hourLosAngeles + ':' + minutes)
+    let hourNY = parseInt(hours) - 6;
+    hourNY = ponerCeros(hourNY);
+    document.getElementById("hourNY").innerHTML = (hourNY + ':' + minutes)
+    let hourSidney = parseInt(hours) - 6;
+    hourSidney = ponerCeros(hourSidney);
+    document.getElementById("hourSidney").innerHTML = (hourSidney + ':' + minutes)
+
     setTimeout('devuelveHora()', 1000)
+}
+
+function ponerCeros(i) {
+    if (i < 10) {
+        i = '0' + i;
+    }
+    return i;
 }
 
 devuelveHora();
