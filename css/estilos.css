@@ -1,3 +1,7 @@
+body {
+    background-color: #10100F;
+}
+
 main {
     margin: 25px;
 }
@@ -7,5 +11,21 @@ main {
     float: right;
     top: -60px;
     right: 70px;
+    position: relative;
+}
+
+.titleWhite {
+    color: white;
+}
+
+.titleGray {
+    color: #909084;
+}
+
+.boxHours .boxTime {
+    float: right;
+    top: -89px;
+    right: 200px;
+    font-size: 40px;
     position: relative;
 }
