@@ -75,6 +75,8 @@ function addTime() {
             console.log(addCiudad + ' ocupa la posicion ' + positionCity + ' en el array')
             let horaCorrespondiente = arrayHorasDiferenciaPaises[positionCity]
             console.log('La posicion de la hora es: ' + horaCorrespondiente);
+
+            mostrarCiudad(positionCity);
         } else {
             alert('Selecciona una ciudad correcta')
         }
@@ -82,5 +84,37 @@ function addTime() {
 }
 
 function mostrarCiudad(i) {
+    //aqui mostraremos cada ciudad con su respectiva hora
+    let hour = arrayHorasDiferenciaPaises[i];
+    console.log('Hora de diferencia: ' + hour);
+    //cremaos el h4 y le asignamos la clase
+    var nodeh4 = document.createElement("h4");
+    nodeh4.className = "titleGray";
+    var textnodeForH4;
+    //si es mayor que 0 le añadiremos el simbolo '+'
+    if (hour >= 0) {
+        textnodeForH4 = document.createTextNode('Hoy, +' + arrayHorasDiferenciaPaises[i] + 'H');
+    } else {
+        textnodeForH4 = document.createTextNode('Hoy, ' + arrayHorasDiferenciaPaises[i] + 'H');
+    }
+    nodeh4.appendChild(textnodeForH4);
 
+    //añadiremos el h3 donde se ve el nombre de la ciudad
+    var nodeh3 = document.createElement("h3");
+    nodeh3.className = "titleWhite";
+    var textnodeForH3 = document.createTextNode(arrayPaises[i]);
+    nodeh3.appendChild(textnodeForH3);
+
+    //creamos el h3 donde se vera la hora
+    var nodeh3Hour = document.createElement("h3");
+    nodeh3Hour.className = "titleWhite boxTime";
+    var nodeTextForh3Hour = document.createTextNode('test');
+    nodeh3Hour.appendChild(nodeTextForh3Hour);
+
+    var hr = document.createElement("hr");
+    //creamos el h3 y los añadimos todos al document
+    document.getElementById("sectionHours").appendChild(nodeh4);
+    document.getElementById("sectionHours").appendChild(nodeh3);
+    document.getElementById("sectionHours").appendChild(nodeh3Hour);
+    document.getElementById("sectionHours").appendChild(hr);
 }
